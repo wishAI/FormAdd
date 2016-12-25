@@ -1,0 +1,305 @@
+$mainColor: #009094
+$transparentWhite: rgba(255, 255, 255, 0.5)
+$borderGrey: #CCCCCC
+$darkGrey: #444444
+$hoverGrey: #EEEEEE
+
+$headerHeight: 40px
+$navToolTabHeight: 30px
+$navToolContainerHeight: 100px
+$documentTabWidth: 200px
+$titleImageWidth: 600px
+
+#varMainColor
+  background-color: $mainColor
+
+*
+  font-family: Helvetica, Arial, "Microsoft YaHei", STHeiti, "Droid Sans Fallback", sans-serif, Segoe UI Emoji
+  text-decoration: none
+
+.light
+  font-family: "Segoe UI", "Helvetica Neue", Roboto, "Ubuntu Light", "Microsoft YaHei", "PingFangSC Ultralight", "Source Han Sans SC", sans-serif
+  font-weight: 100
+  letter-spacing: -1px
+
+.contentTextBold
+  font-weight: 700
+
+//.unselectable
+//  -moz-user-select: text
+//  -khtml-user-select: text
+//  -webkit-user-select: text
+//  -ms-user-select: text
+//  user-select: text
+
+//.selectable
+//  user-select: all
+//  -moz-user-select: -moz-all
+//  -khtml-user-select: all
+//  -webkit-user-select: auto
+//  -ms-user-select: all
+
+html, body
+  height: 100%
+  overflow: hidden
+
+body
+  margin: 0
+
+header
+  position: relative
+  color: white
+  background-color: $mainColor
+  height: $headerHeight
+
+header *
+  display: inline-block
+
+header div
+  height: $headerHeight
+  line-height: $headerHeight
+  overflow: hidden
+
+header p
+  font-size: 14px
+
+#btnMore
+  height: $headerHeight
+  box-sizing: border-box
+  padding: 5px
+  border: none
+  background-color: transparent
+
+.logo
+  vertical-align: top
+
+.logo a
+  font-size: 22px
+  font-weight: lighter
+  color: white
+
+.documentTitle
+  width: 200px
+  position: absolute
+  right: calc(50% - 100px)
+  text-align: center
+  text-overflow: ellipsis
+  cursor: default
+
+.syncStatus
+  position: absolute
+  right: 20px
+  cursor: default
+
+.toolTab
+  background-color: $mainColor
+  font-size: 16px
+
+.btnToolTab
+  width: 50px
+  height: $navToolTabHeight
+  border: none
+  background-color: transparent
+  color: white
+
+#btnFile
+  width: 65px
+
+.btnToolTab:hover
+  background-color: $transparentWhite
+
+.btnToolTabOnSelect
+  color: $mainColor
+  background-color: white
+
+.btnToolTabOnSelect:hover
+  background-color: white
+
+.toolContainer
+  width: 100%
+  height: $navToolContainerHeight
+  position: relative
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  border-bottom: 1px solid $borderGrey
+  background-color: white
+
+.toolContainer > div
+  display: inline-flex
+
+.toolContainerSeparator
+  width: 1px
+  height: calc(#{$navToolContainerHeight} - 10px)
+  background-color: $borderGrey
+  margin-top: 5px
+
+.btnToolBig
+  width: 60px
+  height: calc(#{$navToolContainerHeight} - 20px)
+  display: flex
+  flex-direction: column
+  justify-content: center
+  margin: 10px 7px
+  border: none
+  background-color: transparent
+  font-size: 12px
+  color: $darkGrey
+  cursor: default
+
+.btnToolBig img
+  height: 50px
+
+.btnToolBigContent
+  padding-left: 5px
+  padding-right: 5px
+  padding-bottom: 5px
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+.btnToolBigContent:hover
+  background-color: $hoverGrey
+
+.toolMenu
+  padding: 10px
+  min-width: 54px
+  margin-left: -8px
+  position: absolute
+  top: 100px
+  align-self: flex-start
+  border: 1px solid $borderGrey
+  background-color: white
+  z-index: 1
+
+.toolMenu button
+  border: none
+  background-color: white
+  color: $darkGrey
+  z-index: 2
+
+.toolMenu button:hover
+  background-color: $hoverGrey
+
+#toolMenuAlign
+  display: flex
+  flex-direction: column
+
+.toolFileHolder
+  display: none
+
+main
+  height: calc(100% - #{$headerHeight} - #{$navToolTabHeight} - #{$navToolContainerHeight})
+  position: relative
+
+.documentTabContainer
+  width: $documentTabWidth
+  height: 100%
+  padding-top: 0
+  position: absolute
+  left: 0
+  top: 0
+  bottom: 0
+  border-right: 1px solid $borderGrey
+  overflow-y: auto
+
+.documentTabList
+  margin-top: 0
+  list-style-type: none
+  padding: 0
+
+.documentTab
+  height: 50px
+  padding-left: 15px
+  display: flex
+  flex-direction: row
+  border-bottom: 1px solid $borderGrey
+  align-items: center
+
+.documentTabIcon
+  width: 40px
+  margin-right: 10px
+
+.documentTabPreview
+  width: calc(#{$documentTabWidth} - 80px)
+  overflow: hidden
+  white-space: nowrap
+  font-size: 15px
+  color: $darkGrey
+  text-overflow: ellipsis
+
+.documentTabList li:hover
+  background-color: $hoverGrey
+
+.documentContentContainer
+  width: calc(100% - #{$documentTabWidth})
+  position: absolute
+  right: 0
+  top: 0
+  bottom: 0
+
+#titleContent
+  padding: 50px 50px
+  display: flex
+  flex-direction: column
+  align-items: center
+  box-sizing: border-box
+
+.documentTitleBox
+  width: calc(#{$titleImageWidth} + 4px)
+  margin-bottom: 20px
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+
+.documentTitleBox > input
+  width: 150px
+  height: 50px
+  border-right: none
+  border-top: none
+  border-left: none
+  border-bottom: 2px solid
+  border-color: $borderGrey
+  font-size: 30px
+  font-weight: 100
+  color: $darkGrey
+
+.documentTitleBox > input[type="text"]
+  width: 400px
+
+.documentTitlePictureBox
+  width: $titleImageWidth
+  height: calc(#{$titleImageWidth} * 9 / 16)
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  border: 2px solid $borderGrey
+
+.documentTitlePictureBox > button
+  width: 100%
+  height: 100%
+  border: none
+  background-color: white
+  font-size: 60px
+  font-weight: lighter
+  color: #999999
+
+.documentTitlePictureBox > button:hover
+  background-color: $mainColor
+  color: white
+
+#textContent
+  padding: 50px 60px
+  box-sizing: border-box
+  font-size: 16px
+  line-height: 25px
+  overflow-y: scroll
+  word-wrap: break-word
+  word-break: break-all
+
+
+
+

@@ -1,0 +1,277 @@
+#varMainColor {
+  background-color: #009094; }
+
+* {
+  font-family: Helvetica, Arial, "Microsoft YaHei", STHeiti, "Droid Sans Fallback", sans-serif, Segoe UI Emoji;
+  text-decoration: none; }
+
+.light {
+  font-family: "Segoe UI", "Helvetica Neue", Roboto, "Ubuntu Light", "Microsoft YaHei", "PingFangSC Ultralight", "Source Han Sans SC", sans-serif;
+  font-weight: 100;
+  letter-spacing: -1px; }
+
+.contentTextBold {
+  font-weight: 700; }
+
+html, body {
+  height: 100%;
+  overflow: hidden; }
+
+body {
+  margin: 0; }
+
+header {
+  position: relative;
+  color: white;
+  background-color: #009094;
+  height: 40px; }
+
+header * {
+  display: inline-block; }
+
+header div {
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden; }
+
+header p {
+  font-size: 14px; }
+
+#btnMore {
+  height: 40px;
+  box-sizing: border-box;
+  padding: 5px;
+  border: none;
+  background-color: transparent; }
+
+.logo {
+  vertical-align: top; }
+
+.logo a {
+  font-size: 22px;
+  font-weight: lighter;
+  color: white; }
+
+.documentTitle {
+  width: 200px;
+  position: absolute;
+  right: calc(50% - 100px);
+  text-align: center;
+  text-overflow: ellipsis;
+  cursor: default; }
+
+.syncStatus {
+  position: absolute;
+  right: 20px;
+  cursor: default; }
+
+.toolTab {
+  background-color: #009094;
+  font-size: 16px; }
+
+.btnToolTab {
+  width: 50px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  color: white; }
+
+#btnFile {
+  width: 65px; }
+
+.btnToolTab:hover {
+  background-color: rgba(255, 255, 255, 0.5); }
+
+.btnToolTabOnSelect {
+  color: #009094;
+  background-color: white; }
+
+.btnToolTabOnSelect:hover {
+  background-color: white; }
+
+.toolContainer {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #CCCCCC;
+  background-color: white; }
+
+.toolContainer > div {
+  display: inline-flex; }
+
+.toolContainerSeparator {
+  width: 1px;
+  height: calc(100px - 10px);
+  background-color: #CCCCCC;
+  margin-top: 5px; }
+
+.btnToolBig {
+  width: 60px;
+  height: calc(100px - 20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px 7px;
+  border: none;
+  background-color: transparent;
+  font-size: 12px;
+  color: #444444;
+  cursor: default; }
+
+.btnToolBig img {
+  height: 50px; }
+
+.btnToolBigContent {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.btnToolBigContent:hover {
+  background-color: #EEEEEE; }
+
+.toolMenu {
+  padding: 10px;
+  min-width: 54px;
+  margin-left: -8px;
+  position: absolute;
+  top: 100px;
+  align-self: flex-start;
+  border: 1px solid #CCCCCC;
+  background-color: white;
+  z-index: 1; }
+
+.toolMenu button {
+  border: none;
+  background-color: white;
+  color: #444444;
+  z-index: 2; }
+
+.toolMenu button:hover {
+  background-color: #EEEEEE; }
+
+#toolMenuAlign {
+  display: flex;
+  flex-direction: column; }
+
+.toolFileHolder {
+  display: none; }
+
+main {
+  height: calc(100% - 40px - 30px - 100px);
+  position: relative; }
+
+.documentTabContainer {
+  width: 200px;
+  height: 100%;
+  padding-top: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  border-right: 1px solid #CCCCCC;
+  overflow-y: auto; }
+
+.documentTabList {
+  margin-top: 0;
+  list-style-type: none;
+  padding: 0; }
+
+.documentTab {
+  height: 50px;
+  padding-left: 15px;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #CCCCCC;
+  align-items: center; }
+
+.documentTabIcon {
+  width: 40px;
+  margin-right: 10px; }
+
+.documentTabPreview {
+  width: calc(200px - 80px);
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 15px;
+  color: #444444;
+  text-overflow: ellipsis; }
+
+.documentTabList li:hover {
+  background-color: #EEEEEE; }
+
+.documentContentContainer {
+  width: calc(100% - 200px);
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0; }
+
+#titleContent {
+  padding: 50px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box; }
+
+.documentTitleBox {
+  width: calc(600px + 4px);
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; }
+
+.documentTitleBox > input {
+  width: 150px;
+  height: 50px;
+  border-right: none;
+  border-top: none;
+  border-left: none;
+  border-bottom: 2px solid;
+  border-color: #CCCCCC;
+  font-size: 30px;
+  font-weight: 100;
+  color: #444444; }
+
+.documentTitleBox > input[type="text"] {
+  width: 400px; }
+
+.documentTitlePictureBox {
+  width: 600px;
+  height: calc(600px * 9 / 16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #CCCCCC; }
+
+.documentTitlePictureBox > button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: white;
+  font-size: 60px;
+  font-weight: lighter;
+  color: #999999; }
+
+.documentTitlePictureBox > button:hover {
+  background-color: #009094;
+  color: white; }
+
+#textContent {
+  padding: 50px 60px;
+  box-sizing: border-box;
+  font-size: 16px;
+  line-height: 25px;
+  overflow-y: scroll;
+  word-wrap: break-word;
+  word-break: break-all; }
+
+/*# sourceMappingURL=formPage.css.map */
