@@ -2,13 +2,22 @@
   <library name="Generated files" type="javaScript">
     <properties>
       <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/fileSrcManager.js" />
         <item url="file://$PROJECT_DIR$/formPage.js" />
+        <item url="file://$PROJECT_DIR$/test.js" />
         <item url="file://$PROJECT_DIR$/jquery.caret.js" />
+        <item url="file://$PROJECT_DIR$/backup/formPage.js" />
+        <item url="file://$PROJECT_DIR$/module.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
+      <root url="file://$PROJECT_DIR$/fileSrcManager.js" />
       <root url="file://$PROJECT_DIR$/formPage.js" />
+      <root url="file://$PROJECT_DIR$/test.js" />
       <root url="file://$PROJECT_DIR$/jquery.caret.js" />
+      <root url="file://$PROJECT_DIR$/contentEditableManager.js" />
+      <root url="file://$PROJECT_DIR$/backup/formPage.js" />
+      <root url="file://$PROJECT_DIR$/moduleFactory.js" />
     </CLASSES>
     <SOURCES />
   </library>

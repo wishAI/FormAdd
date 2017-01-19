@@ -7,17 +7,34 @@
     <script type="text/javascript" src="jquery.js" defer></script>
     <script type="text/javascript" src="jquery.caret.js" defer></script>
     <script type="text/javascript" src="jquery.initialize.js" defer></script>
+    <script type="text/javascript" src="moduleFactory.js" defer></script>
+    <script type="text/javascript" src="fileSrcManager.js" defer></script>
+    <script type="text/javascript" src="contentEditableManager.js" defer></script>
     <script type="text/javascript" src="formPage.js" defer></script>
 </head>
 <body>
-<div class="templates" hidden>
-    <ul>
-        <li class="documentTab" id="tmpDocumentTabTitle">
-            <img class="documentTabIcon" src="icons/title.svg">
-            <div><span class="documentTabPreview"></span></div>
-        </li>
-    </ul>
+<!-- the modules for script -->
+
+<div id="modules" hidden>
+    <li class="documentTab" id="tmpDocumentTabTitle">
+        <img class="documentTabIcon" src="icons/title.svg">
+        <div><span class="documentTabPreview"></span></div>
+    </li>
+    <li class="documentTab" id="tmpDocumentTabParagraph">
+        <img class="documentTabIcon" src="icons/text.svg">
+        <div><span class="documentTabPreview"></span></div>
+    </li>
+    <li class="documentTab" id="tmpDocumentTabImage">
+        <img class="documentTabIcon" src="icons/image.svg">
+        <div><span class="documentTabPreview"></span></div>
+    </li>
+    
+    <input class="fileSrcHolder" id="tmpFileSrcHolder" type="file" inputId="0" fileType="">
 </div>
+<!-- hold the file resources in inputs, use customize property inputId to identify -->
+<div id="fileSrcHolders" hidden></div>
+
+<!-- main web page here -->
 <header>
     <input id="btnMore" type="image" src="icons/more.svg">
 
@@ -26,11 +43,13 @@
     <div class="syncStatus"><span>同步状态</span></div>
 </header>
 <nav>
+    <!-- !! need to use list instead !! -->
     <div class="toolTab">
+        <!-- !! switch this containers depends on tools !! -->
         <button class="btnToolTab" id="btnFile">文件</button>
-        <button class="btnToolTab" id="btnStart">开始</button>
-        <button class="btnToolTab" id="btnInsert">插入</button>
-        <button class="btnToolTab" id="btnToolFunction" hidden>工具</button>
+        <button class="btnToolTab" id="btnInsert">插入卡片</button>
+        <button class="btnToolTab btnToolTabSwitch" id="btnParagraph">段落</button>
+        <button class="btnToolTab btnToolTabSwitch" id="btnImage">图片</button>
     </div>
     <div>
         <!-- multiple options inside, use script to change -->
@@ -68,7 +87,29 @@
                 </div>
             </div>
         </div>
-        <div class="toolContainer" id="toolListStart">
+        <div class="toolContainer" id="toolListInsert">
+            <div class="toolContainerLeft">
+                <div class="btnToolBig" id="btnToolParagraph">
+                    <div class="btnToolBigContent">
+                        <img src="icons/text.svg">
+                        <span>段落</span>
+                    </div>
+                    <input class="toolFileHolder" id="btnToolTextHolder" type="file">
+                </div>
+                <div class="toolContainerSeparator"></div>
+                <div class="btnToolBig" id="btnToolImage">
+                    <div class="btnToolBigContent">
+                        <img src="icons/image.svg">
+                        <span>图片</span>
+                    </div>
+                </div>
+                <div class="toolContainerSeparator"></div>
+            </div>
+        </div>
+        
+        
+        <!-- the tool containers switches depends on content type -->
+        <div class="toolContainer" id="toolListParagraph">
             <div class="toolContainerLeft">
                 <div class="btnToolBig" id="btnToolAlign">
                     <div class="btnToolBigContent">
@@ -100,14 +141,14 @@
                 <div class="toolContainerSeparator"></div>
             </div>
         </div>
-        <div class="toolContainer" id="toolListInsert">
+        
+        <div class="toolContainer" id="toolListImage">
             <div class="toolContainerLeft">
-                <div class="btnToolBig" id="btnToolPicture">
+                <div class="btnToolBig" id="btnToolAddImage">
                     <div class="btnToolBigContent">
-                        <img src="icons/image.svg">
-                        <span>图片</span>
+                        <img src="icons/add.svg">
+                        <span>添加</span>
                     </div>
-                    <input class="toolFileHolder" id="btnToolPictureHolder" type="file">
                 </div>
                 <div class="toolContainerSeparator"></div>
             </div>
@@ -116,34 +157,39 @@
 </nav>
 <main>
     <div class="documentTabContainer">
-        <ul class="documentTabList">
-            <li class="documentTab">
-                <img class="documentTabIcon" src="icons/title.svg">
-                <div><span class="documentTabPreview">喳喳喳渣渣</span></div>
-            </li>
-            <li class="documentTab">
-                <img class="documentTabIcon" src="icons/title.svg">
-                <span class="documentTabPreview">喳喳喳渣渣还渣渣画质hhhhhh</span>
-            </li>
+        <ul class="documentTabList" id="documentTabList">
         </ul>
     </div>
+    <!-- ?? should use a list ?? -->
     <div>
         <div class="documentContentContainer" id="titleContent">
-            <div class="documentTitleBox">
-                <input placeholder="类别" list="titleType">
+            <div class="contentTitleBox">
+                <input placeholder="类别" class="light" list="titleType">
                 <datalist id="titleType">
                     <option value="资讯"></option>
                     <option value="比赛"></option>
                 </datalist>
-                <input placeholder="标题" type="text">
+                <input placeholder="标题" class="light" type="text">
             </div>
-            <div class="documentTitlePictureBox">
+            <div class="contentTitleImageBox">
+                <!-- remove the button then add an image ele if upload -->
                 <button>上传封面</button>
             </div>
         </div>
         <div class="documentContentContainer" id="textContent" contenteditable="true"><span class="contentText"></span></div>
-        <div class="documentContentContainer" id="pictureContent"></div>
+        <div class="documentContentContainer" id="imageContent">
+            <!-- the selected image in the center, need add several left and right with script if screen wide -->
+            <!-- !! should use absolute position in CSS !! -->
+            <!-- !! should add the move back and forward btn, both view and edit !! -->
+            <div class="contentImageBox">
+                <img class="contentImage" src="example.png" alt="example">
+            </div>
+            <div class="contentImageInfoBox">
+                <input placeholder="注解" class="contentImageInfo light" type="text">
+            </div>
+        </div>
     </div>
 </main>
+
 </body>
 </html>

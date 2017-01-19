@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "moduleFactory.js",
+  "sourceRoot": "",
+  "sources": [
+    "moduleFactory.coffee"
+  ],
+  "names": [],
+  "mappings": ";AAAA;EAAM,MAAM,CAAC;IAEE,uBAAA,GAAA;;4BAEb,aAAA,GAAe,SAAC,EAAD;AACb,UAAA;MAAA,GAAA,GAAM,CAAA,CAAE,QAAQ,CAAC,cAAT,CAAwB,EAAxB,CAAF,CAA8B,CAAC,KAA/B,CAAA,CAAuC,CAAA,CAAA;MAC7C,CAAA,CAAE,GAAF,CAAM,CAAC,UAAP,CAAkB,IAAlB;aACA;IAHa;;;;;AAJjB"
+}
